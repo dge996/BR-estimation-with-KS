@@ -6,3 +6,5 @@ This work, as part of the SHERPAM projet (2014-2018), has received the French go
 We would appreciate if you cite the following reference in your publication when using the current software for your work. Thank you. 
 
 S. Khreis et al. « Breathing Rate Estimation Using Kalman Smoother with Electrocardiogram and Photoplethysmogram » , IEEE Transactions on Biomedical Engineering , impress 
+
+Email: di.ge@univ-rennes1/fr
