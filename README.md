@@ -7,4 +7,4 @@ We would appreciate if you cite the following reference in your publication when
 
 S. Khreis et al. « Breathing Rate Estimation Using Kalman Smoother with Electrocardiogram and Photoplethysmogram » , IEEE Transactions on Biomedical Engineering , impress 
 
-Email: di.ge@univ-rennes1/fr
+Email: di.ge \at univ-rennes1/fr
