@@ -1,5 +1,5 @@
 # BR-estimation-with-KS
-Matlab GUI implementation of breathing rate estimation with ECG/PPG modulations (kalman smoothing approach coupled with RQI)
+Matlab GUI implementation of breathing rate estimation with ECG/PPG modulations (kalman smoothing approach coupled with RQI). Traces and annotations are available in Capnobase (http://www.capnobase.org/). The entry-point of the application is "BREstimationByKSFusion.m".
 
 This work, as part of the SHERPAM projet (2014-2018), has received the French government support granted to the Cominlabs excellence laboratory under grant ANR-10-LABX-07-01. 
 
