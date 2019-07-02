@@ -86,8 +86,14 @@ function ECG_Callback(hObject, eventdata, handles)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
 linkaxes(findall(0,'type','axes'),'x');
+handlesCopy=handles;
+handles=rmfield2(handles,'RPA','RRI','AQRS','QRA','RPA_filt','RRI_filt',...
+    'AQRS_filt','QRA_filt','indx_RQI','bw_brut','bw_filt',...
+    'ecg_filt','Q_i','S_i','ttot_sansfusion','ttot_t','R_i',...
+    'ttot_fusion');
 loadECG
 if file ~= 0
+    clear handlesCopy
     set(handles.plotRQI,'Value',0);
     set(handles.plotRef,'Value',0);
     set(handles.plot_tQRS,'Value',0);
@@ -96,14 +102,11 @@ if file ~= 0
 %     plotRQI_Callback(handles.plotRQI, eventdata, handles);
 %     plotRef_Callback(handles.plotRQI, eventdata, handles);
 %     plot_tQRS_Callback(handles.plotRQI, eventdata, handles);
-    handles=rmfield2(handles,'RPA','RRI','AQRS','QRA','RPA_filt','RRI_filt',...
-        'AQRS_filt','QRA_filt','indx_RQI','bw_brut','bw_filt',...
-        'ecg_filt','R_i','Q_i','S_i','ttot_sansfusion','ttot_t',...
-        'ttot_fusion');
+    handles.ECGpath = path;
+    handles.ECGfile = file;
+else
+    handles=handlesCopy;
 end
-
-handles.ECGpath = path;
-handles.ECGfile = file;
 
 ecgfs=str2double(get(handles.ecgfs,'String'));
 ecg_brut=handles.ecg_brut;
@@ -125,8 +128,6 @@ handles=rmfield2(handles,'RPA','RRI','AQRS','QRA','RPA_filt','RRI_filt',...
 ecg_brut=handles.ecg_brut;
 ecgfs=str2double(get(handles.ecgfs,'String'));
 bwfs=str2double(get(handles.bwfs,'String'));
-
-calculateR_i
 R_i=handles.R_i;
 detection_Q_S
 
@@ -749,11 +750,6 @@ function plot_tQRS_Callback(hObject, eventdata, handles)
 % handles    structure with handles and user data (see GUIDATA)
 
 % Hint: get(hObject,'Value') returns toggle state of plot_tQRS
-if ~isfield(handles,'R_i') && get(hObject,'Value')==1
-    ecg_brut=handles.ecg_brut;
-    ecgfs=str2double(get(handles.ecgfs,'String'));
-    calculateR_i
-end
 plotECG
 
 
